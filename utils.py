@@ -16,7 +16,6 @@ def get_allocated_excs(db, mapping, db_name):
     By correct format we mean the one consistent with the format of exchanges 
     in the (not written yet) consumption database (see eg co.data[0]['exchanges']).
     We exclude amounts for now and instead add field 'production volume share'
-
     Attributes
     ----------
     unlinked_list : list
@@ -25,14 +24,12 @@ def get_allocated_excs(db, mapping, db_name):
         Each dictionary corresponds to an unlinked exchange with key = name of the unlinked exchange and 
                                                                  values = codes of allocation activities
     db_name : name of the database to link to 
-
     Returns
     -------
     unlinked_list_used : list
         List of unlinked exchanges that are actually present in the mapping.
     allocated_excs : list of lists
         Each inner list contains exchanges dictionaries
-
     """
 
     unlinked_list = list(db.unlinked)
@@ -152,4 +149,3 @@ def modify_exchanges(db, mapping, db_name):
     db1.match_database(db_name, fields=('name','reference product', 'unit','location'))
     
     return db1
-
